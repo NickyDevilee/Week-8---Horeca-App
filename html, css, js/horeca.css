@@ -1,0 +1,66 @@
+/*Nicky Devilee
+Bol4 applicatieontwikkelaar
+Week 8 - JavaScript
+opdracht: Week 8 - Horeca App*/
+
+/*instellingen voor het navigatie menu.*/
+.menu {
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.menu a {
+    float: left;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+/*instellingen wanneer de muis over het menu hovert*/
+.menu a:hover {
+    background-color: lightgrey;
+    color: black;
+}
+
+/*instellingen voor de actieve pagina*/
+.menu a.actief {
+    background-color: #FF0000;
+    color: white;
+}
+
+/*margin left om het menu te centreren.*/
+#left{
+	margin-left: 50px;
+}
+
+.logo{
+    float: left;
+    height: 100px;
+    width: 70.656px;
+    margin-left: 650px;
+}
+
+body{
+	color: white;
+	font-size: 35px;
+	text-align: center;
+	font-family: 'Fredericka the Great', cursive;
+	background-image: url(../img/achtergrond.jpg);
+}
+
+h1{
+	color: #00b157;
+	font-size: 50px;
+	text-decoration: underline;
+}
+
+h2{
+    text-decoration: underline;
+}
+
+ul li{
+    list-style-type: none;
+    padding-top: 25px;
+}
