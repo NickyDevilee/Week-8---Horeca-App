@@ -16,6 +16,8 @@ opdracht: Week 8 - Horeca App*/
     text-decoration: none;
     font-size: 20px;
     margin-top: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /*instellingen wanneer de muis over het menu hovert*/
@@ -58,9 +60,14 @@ h1{
 
 h2{
     text-decoration: underline;
+    margin-bottom: 1px;
 }
 
 ul li{
     list-style-type: none;
     padding-top: 25px;
+}
+
+#kopje{
+    text-decoration: underline;
 }

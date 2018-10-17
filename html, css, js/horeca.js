@@ -3,62 +3,90 @@
 // Week 8 - JavaScript
 // opdracht: Week 8 - Horeca App
 
-// parseInt(prompt('Hoeveel fris wil je?'));
-// document.write('totaalprijs: €' + fris*aantal);
-// var fris = 1.50;
-// var bier = 2;
-// var wijn = 3.50;
-// keuze = 'bier' || keuze = 'fris' || keuze = 'wijn'
-
-// function 1() {
-// 	if (keuze == 'bier' || keuze == 'fris' || keuze == 'wijn') {
-// 		var aantal = parseInt(prompt('Hoeveel ' + keuze + ' wilt u toevoegen aan uw bestelling?'));
-// 		document.write('Toegevoegd aan de bestelling: ' + aantal + keuze + '<br>');
-// 		1();
-// 	}else if (keuze == 'stop') {
-
-// 	}else{
-// 		alert('U heeft een ongeldige invoer gedaan. Uw bestelling kan niet worden toegevoegd, begin opnieuw.');
-// 	}
-// }
-
 var fris = 0;
 var bier = 0;
 var wijn = 0;
+var keuze;
 
 function bestelling() {
-	var keuze = prompt('Welke bestelling wilt u toevoegen? Typ "stop" in om de bestelling te stoppen.');
+	var keuze = prompt('Welke bestelling wilt u toevoegen? Bier, fris, wijn of snack. Typ "stop" in om de bestelling te stoppen.');
 	if (keuze == 'wijn') {
-		var wijn = parseInt(prompt('Hoeveel wijn wilt u toevoegen aan uw bestelling?'));
+		wijn = parseInt(prompt('Hoeveel wijn wilt u toevoegen aan uw bestelling?'));
 		bestelling();
-		document.write(wijn + ' wijn' + '<br>');
+		document.write(wijn + ' wijn = €' + prijswijn + '<br>');
 	}
 		else if (keuze == 'fris') {
-			var fris = parseInt(prompt('Hoeveel fris wilt u toevoegen aan uw bestelling?'));
+			fris = parseInt(prompt('Hoeveel fris wilt u toevoegen aan uw bestelling?'));
 			bestelling();
-			document.write(fris + ' fris' + '<br>');
+			document.write(fris + ' fris = €' + prijsfris + '<br>');
 		}
 			else if (keuze == 'bier') {
-				var bier = parseInt(prompt('Hoeveel bier wilt u toevoegen aan uw bestelling?'));
+				bier = parseInt(prompt('Hoeveel bier wilt u toevoegen aan uw bestelling?'));
 				bestelling();
-				document.write(bier + ' bier' + '<br>');
+				document.write(bier + ' bier = €' + prijsbier + '<br>');
 			}
-				else if (keuze == 'stop') {
-
+				else if (keuze == 'snack') {
+					bitterbestel();
 				}
-					else{
-						alert('U heeft een ongeldige invoer gedaan. Uw bestelling kan niet worden toegevoegd, begin opnieuw.');
-						bestelling();
+					else if (keuze == 'stop') {
+						prijsberekenen();
+						totaal();
 					}
+	else{
+		alert('U heeft een ongeldige invoer gedaan. Uw bestelling kan niet worden toegevoegd, begin opnieuw.');
+		bestelling();
+	}
 }
 
-// document.write('Bestelling:' + '<br>' + '<br>')
-// bestelling();
+var bittersmall = 0;
+var bitterbig = 0;
 
-var prijsfris = 1.50;
-var prijsbier = 2;
-var prijswijn = 3.50;
+// function bitterbestel() {
+// 	var bitterbal = parseInt(prompt('Hoeveel bitterballen wilt u toevoegen (8 of 16)?'));
+// 	if (bitterbal == '8') {
+// 		var bittersmall = parseInt(prompt('Hoeveel bitterbalschalen van 8 stuks wilt u bestellen?'));
+// 		document.write(bittersmall + 'x bitterbalschaal (8stuks) = €' + prijsbittersmall + '<br>');
+// 		bestelling();
+// 	}
+// 		if (bitterbal == '16') {
+// 			var bitterbig = parseInt(prompt('Hoeveel bitterbalschalen van 16 stuks wilt u bestellen?'));
+// 			document.write(bitterbig + 'x bitterbalschaal (16stuks) = €' + prijsbitterbig + '<br>');
+// 			bestelling();
+// 		}
+// 			if (bitterbal != '8' || bitterbal != '16') {
+// 				alert('U kunt alleen een keuze maken tussen 8 en 16. De snacks zijn niet toegevoegd aan de bestelling.');
+// 				bestelling();
+// 			}
+// }
 
-function prijs() {
-	// body...
+
+
+var prijsfris = 0; // 1.5
+var prijsbier = 0; // 2
+var prijswijn = 0; // 3.5
+var prijsbittersmall = 0; // 3
+var prijsbitterbig = 0; // 5
+
+
+function prijsberekenen() {
+	prijsbier = bier*2;
+	prijswijn = wijn*3.5;
+	prijsfris = fris*1.5;
+	prijsbittersmall = bittersmall*3;
+	prijsbitterbig = bitterbig*5;
 }
+
+var totaalprijs = 0;
+
+function totaal() {
+	totaalprijs = prijsfris + prijswijn + prijsbier + prijsbittersmall + prijsbitterbig;
+}
+
+
+
+
+
+document.write('Bestelling:' + '<br>' + '<br>')
+bestelling();
+document.write('<br>' + '============================================' + '<br>' + '<br>' + 'Totaalprijs:' + '<br>' + '<br>');
+document.write('€' + totaalprijs)
